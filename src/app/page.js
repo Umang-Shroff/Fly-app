@@ -5,6 +5,8 @@ import Comp from "./Comp";
 
 export default function Home() {
   const [show1,setShow1] = useState(false);
+  const [show2,setShow2] = useState(false);
+
 
   const[trial,setTrial] = useState([]);
   useEffect(()=>{
@@ -21,6 +23,9 @@ export default function Home() {
   function clickedFunc1(){
     setShow1(!show1);
     // console.log(show);
+  }
+  function clickedFunc2(){
+    setShow2(!show2);
   }
 
   return (
@@ -84,7 +89,11 @@ export default function Home() {
             <th  id="color6">Scanned with Installed Silal App</th>
             <th></th>
         </tr>  
-    { 
+
+
+   {/* WITH DATABASE CONNECTION FROM MYSQL */}
+
+    {/* { 
         trial.map((sale)=>{ 
           return(
                 <>
@@ -111,7 +120,54 @@ export default function Home() {
           );
           
        }) 
+    } */}
+
+
+
+
+    {/* HARD CODED INPUT */}
+
+
+    <tr>
+        <td>1</td>
+        <td>03-09-2023</td>
+        <td>Al Ain-Al</td>
+        <td><span style={{backgroundColor:'#12765f',borderRadius:'3px',paddingTop:'5px',paddingBottom:'5px',color:'white',paddingLeft:'15px',paddingRight:'15px'}}>SO/2023/9/1668</span></td>
+        <td>Abu Dhabi Coop</td>
+        <td>Cucumber</td>
+        <td>12</td>
+        <td>25</td>
+        <td>17</td>
+        <td>25</td>
+        <td>27368124</td>
+        <td><span style={{backgroundColor:'#12765f',borderRadius:'3px',paddingTop:'5px',paddingBottom:'5px',color:'white',paddingLeft:'20px',paddingRight:'20px'}}>24</span></td>
+        <td>2</td>
+        <td><button onClick={()=>clickedFunc1()} class="tablebtn" style={{color:'black',fontWeight:'bold',width:'65px'}}>Track &#x3e;</button></td>
+    </tr>
+    {
+      show1 && <Comp customer="Abu Dhabi Coop" house="Al Ain-Al" product="Cucumber" order="03-09-2023"/>
     }
+    <tr>
+        <td>2</td>
+        <td>10-10-2022</td>
+        <td>Maldives</td>
+        <td><span style={{backgroundColor:'#12765f',borderRadius:'3px',paddingTop:'5px',paddingBottom:'5px',color:'white',paddingLeft:'15px',paddingRight:'15px'}}>S0/2022/12/3213</span></td>
+        <td>Assdadsad</td>
+        <td>Mushroom</td>
+        <td>13</td>
+        <td>20</td>
+        <td>11</td>
+        <td>21</td>
+        <td>28369792</td>
+        <td><span style={{backgroundColor:'#12765f',borderRadius:'3px',paddingTop:'5px',paddingBottom:'5px',color:'white',paddingLeft:'20px',paddingRight:'20px'}}>12</span></td>
+        <td>5</td>
+        <td><button onClick={()=>clickedFunc2()} class="tablebtn" style={{color:'black',fontWeight:'bold',width:'65px'}}>Track &#x3e;</button></td>
+    </tr>
+    {
+      show2 && <Comp customer="Assdadsad" house="Maldives" product="Mushroom" order="10-10-2022"/>
+    }
+
+
     </table>
 
     </>
